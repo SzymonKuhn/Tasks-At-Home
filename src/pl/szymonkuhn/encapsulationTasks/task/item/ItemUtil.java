@@ -1,7 +1,7 @@
 package pl.szymonkuhn.encapsulationTasks.task.item;
 
-class ItemUtil {
-    String truncate(String text, int maxLength) {
+public class ItemUtil {
+    public String truncate(String text, int maxLength) {
         if (text == null || text.length() < maxLength) {
             return text;
         }
