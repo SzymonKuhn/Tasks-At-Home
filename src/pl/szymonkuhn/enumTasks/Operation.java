@@ -1,10 +1,10 @@
 package pl.szymonkuhn.enumTasks;
 
 public enum Operation {
-    PLUS ("+"),
-    MINUS ("-"),
-    DIVIDE ("/"),
-    MULTIPLY ("*");
+    PLUS("+"),
+    MINUS("-"),
+    DIVIDE("/"),
+    MULTIPLY("*");
 
     String symbol;
 
@@ -16,7 +16,7 @@ public enum Operation {
         return symbol;
     }
 
-    public void calculate (double a, double b) {
+    public void calculate(double a, double b) {
         double result = 0.0;
         switch (this) {
             case PLUS:
@@ -32,28 +32,36 @@ public enum Operation {
                 result = a * b;
                 break;
         }
-    System.out.println("Rezultat z działania: " + " " + a + " " + this.symbol + " " + b + " " + " to: " + result);
-}
-
-
-    public void calculateBySymbol (double a, double b) {
-        double result = 0.0;
-        switch (this.getSymbol()) {
-            case "+":
-                result = a + b;
-                break;
-            case "-":
-                result = a - b;
-                break;
-            case "/":
-                result = a / b;
-                break;
-            case "*":
-                result = a * b;
-                break;
-        }
         System.out.println("Rezultat z działania: " + " " + a + " " + this.symbol + " " + b + " " + " to: " + result);
     }
 
 
+//    public void calculateBySymbol (double a, double b) {
+//        double result = 0.0;
+//        switch (this.getSymbol()) {
+//            case "+":
+//                result = a + b;
+//                break;
+//            case "-":
+//                result = a - b;
+//                break;
+//            case "/":
+//                result = a / b;
+//                break;
+//            case "*":
+//                result = a * b;
+//                break;
+//        }
+//        System.out.println("Rezultat z działania: " + " " + a + " " + this.symbol + " " + b + " " + " to: " + result);
+//    }
+
+
+    public static Operation ofSymbol(String symbol) {
+        for (Operation operation : values()) {
+            if (symbol.equals(operation.getSymbol())){
+                return operation;
+            }
+        }
+        return null;
+    }
 }

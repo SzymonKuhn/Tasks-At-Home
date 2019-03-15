@@ -13,6 +13,8 @@ public class EnumTest {
         Operation.DIVIDE.calculate(20, 12.3);
         Operation.MULTIPLY.calculate(11.7, 3.2);
 
+        System.out.println(Operation.ofSymbol("+"));
+
 
 
     }
