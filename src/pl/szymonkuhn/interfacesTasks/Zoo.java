@@ -22,7 +22,7 @@ public class Zoo {
 //        System.out.println("Pływa? " + pies.isSwimming());
 //        System.out.println("Pływa? " + pies.isNotSwimming());
 
-        List<Animal> listOfAnimals = new ArrayList();
+        List<AnimalClass> listOfAnimals = new ArrayList();
         listOfAnimals.add(pies);
         listOfAnimals.add(pies2);
         listOfAnimals.add(mucha);
@@ -34,7 +34,7 @@ public class Zoo {
         listOfAnimals.add(sum);
         listOfAnimals.add(sum2);
 
-        List<Animal> listOfAnimals2 = Arrays.asList(sum, sum2, wąż, wróbel);
+        List<AnimalClass> listOfAnimals2 = Arrays.asList(sum, sum2, wąż, wróbel, pies);
 
         System.out.println("\nZwierzęta listy 1. : ");
         for (Animal animal : listOfAnimals){
@@ -48,9 +48,18 @@ public class Zoo {
 
         System.out.println("\nListy są takie same? " + listOfAnimals.equals(listOfAnimals2));
 
-        for (int i = 0; i < listOfAnimals.size(); i++) { // chcę usunąć obiekty które nie występują w listOfAnimals2
-            if (!listOfAnimals2.contains(listOfAnimals.get(i))) {
-                listOfAnimals.remove(listOfAnimals.get(i)); //Dlaczego nie usuwa wszystkich obiektów spełniających warunek?
+//        for (int i = 0; i < listOfAnimals.size(); i++) { // chcę usunąć obiekty które nie występują w listOfAnimals2
+//            if (!listOfAnimals2.contains(listOfAnimals.get(i))) {
+//                listOfAnimals.remove(listOfAnimals.get(i)); //Dlaczego nie usuwa wszystkich obiektów spełniających warunek?
+//            }
+//        }
+
+        System.out.println("Usuwanie obiektów które nie występują na drugiej liście");
+
+        Iterator iterator = listOfAnimals.iterator();
+        while (iterator.hasNext()) {
+            if (!listOfAnimals2.contains(iterator.next())) {
+                iterator.remove();
             }
         }
 
@@ -64,7 +73,24 @@ public class Zoo {
             System.out.print(animal.getName() + " ");
         }
 
+
+        System.out.println("\nSortowanie list");
+        Collections.sort(listOfAnimals);
+        Collections.sort(listOfAnimals2);
+
+        System.out.println("\nZwierzęta listy 1. : ");
+        for (Animal animal : listOfAnimals){
+            System.out.print(animal.getName() + " ");
+        }
+
+        System.out.println("\nZwierzęta listy 2. :");
+        for (Animal animal : listOfAnimals2){
+            System.out.print(animal.getName() + " ");
+        }
+
         System.out.println("\nListy są takie same? " + listOfAnimals.equals(listOfAnimals2));
+
+//        listOfAnimals.sort();
 
 
 

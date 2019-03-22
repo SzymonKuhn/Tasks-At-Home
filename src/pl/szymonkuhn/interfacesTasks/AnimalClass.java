@@ -1,6 +1,6 @@
 package pl.szymonkuhn.interfacesTasks;
 
-public class AnimalClass implements Animal {
+public class AnimalClass implements Animal, Comparable<Animal> {
     String name;
     String speak;
     int age;
@@ -29,5 +29,10 @@ public class AnimalClass implements Animal {
     @Override
     public String speak() {
         return speak;
+    }
+
+    @Override
+    public int compareTo(Animal o) {
+        return this.getName().compareToIgnoreCase(o.getName());
     }
 }
