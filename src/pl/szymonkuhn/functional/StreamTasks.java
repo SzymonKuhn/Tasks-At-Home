@@ -34,12 +34,6 @@ public class StreamTasks {
         doubledSortedList.stream().forEach(a -> System.out.print(a + " "));
 
 
-
-
-
-
-
-
     }
 
     static Integer randomNumber() {
