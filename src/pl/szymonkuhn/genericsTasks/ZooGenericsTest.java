@@ -20,10 +20,11 @@ public class ZooGenericsTest {
         zooGenerics.addAnimal(bird2);
         zooGenerics.addAnimal(bird3);
 
-        System.out.println("Count birds: " + zooGenerics.countBirds());
-        System.out.println("Count fishes: " + zooGenerics.countFishes());
+//        System.out.println("Count birds: " + zooGenerics.countBirds());
+//        System.out.println("Count fishes: " + zooGenerics.countFishes());
         System.out.println("Count animals: " + zooGenerics.countAnimals());
         System.out.println("Count older then 10: " + zooGenerics.countAnimalsOlderThen(10));
+        zooGenerics.countByType();
 
     }
 }

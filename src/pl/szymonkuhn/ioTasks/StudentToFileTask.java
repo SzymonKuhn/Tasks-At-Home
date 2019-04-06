@@ -1,5 +1,6 @@
 package pl.szymonkuhn.ioTasks;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -15,7 +16,13 @@ public class StudentToFileTask {
         Student student3 = new Student(3, "Irena Biebrzańska", "department2");
         Student student4 = new Student(4, "Paweł Jakuwiecki", "department2");
         Student student5 = new Student(5, "Joanna Mierzejewska", "department3");
-        List<Student> studentList = Arrays.asList(student1, student2, student3, student4, student5);
+        Student student6 = new Student(6, "Ewa Laniwic", "department7");
+        Student student7 = new Student(7, "Wiesław Lebiega", "department9");
+        Student student8 = new Student(8, "Sławek Chula", "department2");
+        Student student9 = new Student(9, "Basia Jankowiec", "department11");
+        Student student10 = new Student(10, "Maria Zyga", "department12");
+        Student student11 = new Student(11, "Jacek Kierelny", "department1");
+        List<Student> studentList = Arrays.asList(student1, student2, student3, student4, student5, student6, student7, student8, student9, student10, student11);
 
         Path basePath = Paths.get("D:\\JavaTasks\\students");
         Path targetFile = basePath.resolve("students.txt");
@@ -36,10 +43,9 @@ public class StudentToFileTask {
             }
         }
 
-        try (FileWriter writer = new FileWriter(targetFile.toString())) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(targetFile.toString()))) {
             for (Student student : studentList) {
-                writer.write(student.toString());
-                writer.write("tu powinna być nowa linia -> \n <- tutaj był znak nowej linii");
+                bufferedWriter.write(student.toString() + "\r\n");
             }
         } catch (IOException e) {
             e.printStackTrace();
